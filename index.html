@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divino Pão Padaria | Pães, Confeitaria e Bufê em Vila Velha</title>
+    <meta name="description" content="A melhor padaria de Vila Velha. Pães frescos, confeitaria de produção própria, açougue, frios e serviço de bufê para eventos. Conheça a Divino Pão.">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* --- ESTILOS GERAIS E VARIÁVEIS --- */
+        :root {
+            --primary: #4e342e;       /* Marrom Café (Institucional) */
+            --secondary: #d84315;     /* Laranja Forno/Trigo (Destaques) */
+            --secondary-hover: #bf360c;
+            --text-dark: #3e2723;
+            --text-light: #fff8e1;
+            --bg-light: #fffdf7;
+            --bg-accent: #f5ece5;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-hover);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(216, 67, 21, 0.3);
+        }
+
+        /* --- CADEÇALHO (NAVBAR) --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(78, 52, 46, 0.7), rgba(78, 52, 46, 0.8)), 
+                        url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.95;
+        }
+
+        /* --- QUEM SOMOS (Institucional) --- */
+        .about {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* --- PRODUTOS E VITRINE --- */
+        .products {
+            padding: 80px 0;
+            background-color: var(--bg-accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .img-paes { background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80'); }
+        .img-doces { background-image: url('https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?auto=format&fit=crop&w=600&q=80'); }
+        .img-carnes { background-image: url('https://images.unsplash.com/photo-1603048297172-c92544798d5e?auto=format&fit=crop&w=600&q=80'); }
+        .img-frios { background-image: url('https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=600&q=80'); }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* --- ATACADO E BUFÊ (Destaque para CNAEs Secundários) --- */
+        .corporate {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .corporate .section-title {
+            color: var(--white);
+        }
+
+        .corporate .section-title::after {
+            background-color: var(--secondary);
+        }
+
+        .corporate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .corp-item {
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .corp-item h3 {
+            color: var(--secondary);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        /* --- CONTATO E LOCALIZAÇÃO --- */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item strong {
+            color: var(--secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(216, 67, 21, 0.1);
+        }
+
+        /* --- FOOTER EXIGIDO PELO GOOGLE ADS --- */
+        footer {
+            background-color: #2d1c18;
+            color: #d7ccc8;
+            padding: 50px 0 20px 0;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-legal {
+            max-width: 900px;
+            line-height: 1.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* --- BANNER DE COOKIES & MODAIS --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #2d1c18;
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            z-index: 9999;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .cookie-text { font-size: 14px; max-width: 75%; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 10000;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px; width: 100%; max-height: 85vh;
+            overflow-y: auto; position: relative;
+            color: var(--text-dark);
+        }
+
+        .close-modal {
+            position: absolute; top: 20px; right: 25px;
+            font-size: 28px; cursor: pointer; color: var(--primary); font-weight: bold;
+        }
+
+        .modal-content h2 { color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
+        .modal-content h3 { color: var(--primary); margin: 20px 0 10px 0; font-size: 18px; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 36px; }
+            .cookie-banner { flex-direction: column; text-align: center; }
+            .cookie-text { max-width: 100%; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Divino Pão <span>Padaria</span></div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Nossa História</a></li>
+                <li><a href="#produtos">Vitrine</a></li>
+                <li><a href="#corporativo">Eventos & Atacado</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>O Sabor Divino em Cada Detalhe</h1>
+            <p>Mais do que uma padaria. Pães de fermentação natural, confeitaria fina de produção própria, açougue selecionado e estrutura completa de bufê para o seu evento em Vila Velha.</p>
+            <a href="#produtos" class="btn">Conheça Nossos Produtos</a>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a Divino Pão</h2>
+            <p class="about-text">
+                A <strong>Divino Pao Padaria LTDA</strong> é uma empresa matriz dedicada a fornecer excelência no ramo alimentício. Estruturada para atender com altíssima qualidade tanto o consumidor final quanto clientes corporativos, possuímos produção própria de produtos de padaria e confeitaria. Além da nossa loja varejista completa com laticínios, bebidas e açougue, operamos fortemente no comércio atacadista e prestação de serviços de bufê, garantindo frescor, segurança alimentar e um atendimento impecável.
+            </p>
+        </div>
+    </section>
+
+    <!-- VITRINE DE PRODUTOS -->
+    <section id="produtos" class="products">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Nossa Vitrine</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img img-paes"></div>
+                    <div class="product-info">
+                        <h3>Padaria Artesanal</h3>
+                        <p>Produção própria diária. Pães tradicionais, de fermentação natural, integrais e salgados fresquinhos a toda hora.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img img-doces"></div>
+                    <div class="product-info">
+                        <h3>Confeitaria e Doceria</h3>
+                        <p>Tortas decoradas, bombons finos, doces tradicionais e sobremesas feitas com ingredientes premium.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img img-carnes"></div>
+                    <div class="product-info">
+                        <h3>Açougue Premium</h3>
+                        <p>Cortes de carnes rigorosamente selecionados para o dia a dia da sua família ou para o churrasco perfeito.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img img-frios"></div>
+                    <div class="product-info">
+                        <h3>Laticínios, Frios e Adega</h3>
+                        <p>Ampla variedade de queijos, embutidos, além de uma adega completa com bebidas nacionais e importadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATACADO E BUFÊ -->
+    <section id="corporativo" class="corporate">
+        <div class="container">
+            <h2 class="section-title">Soluções para Eventos e Empresas</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px auto; font-size: 18px; opacity: 0.9;">Atendemos demandas em larga escala com a mesma qualidade da nossa vitrine.</p>
+            <div class="corporate-grid">
+                <div class="corp-item">
+                    <h3>Serviço de Bufê e Recepções</h3>
+                    <p>Planejamento e execução de serviços de alimentação para eventos corporativos, casamentos, aniversários e confraternizações. Menus personalizados com nossa produção própria.</p>
+                </div>
+                <div class="corp-item">
+                    <h3>Fornecimento no Atacado</h3>
+                    <p>Comércio atacadista de produtos alimentícios em geral. Fornecemos pães, doces e insumos para restaurantes, lanchonetes e outras empresas da região com logística eficiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Faça sua Encomenda</h2>
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="info-item">
+                        <strong>Nossa Loja (Endereço Físico)</strong>
+                        <p>Rua Alan Kardec, SN<br>Bairro Divino Espírito Santo<br>Vila Velha - ES, CEP: 29107-240</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>E-mail Comercial</strong>
+                        <p>contato@divinopaopadaria.com.br</p> 
+                    </div>
+                    <div class="info-item">
+                        <strong>Telefones e Encomendas</strong>
+                        <p>(27) 99200-0000</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Horário de Funcionamento</strong>
+                        <p>Segunda a Sábado: 06:00 às 21:00<br>Domingos e Feriados: 06:30 às 13:00</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Sua solicitação foi enviada! Em breve nossa equipe retornará o contato.');">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" required placeholder="Como podemos te chamar?">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone / WhatsApp</label>
+                            <input type="text" id="phone" required placeholder="(DDD) Número">
+                        </div>
+                        <div class="form-group">
+                            <label for="msg">Mensagem ou Pedido</label>
+                            <textarea id="msg" rows="5" required placeholder="Gostaria de fazer uma encomenda, orçamento de bufê ou tirar uma dúvida?"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL (Exigido pelas Políticas do Google Ads) -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="#" onclick="openModal('policyModal'); return false;">Política de Privacidade</a> | 
+                <a href="#" onclick="openModal('termsModal'); return false;">Termos de Serviço</a>
+            </div>
+            <div class="footer-legal">
+                © 2026 <strong>Divino Pao Padaria LTDA</strong>. Todos os direitos reservados.<br>
+                Razão Social: Divino Pao Padaria LTDA | CNPJ: 66.966.253/0001-22 | Capital Social: R$ 200.000,00<br>
+                Endereço de Registro: Rua Alan Kardec, SN, Divino Espírito Santo, Vila Velha - ES, CEP 29107-240<br>
+                Situação Cadastral: Ativa (Data de Abertura: 25/05/2026).<br>
+                <span style="font-size: 12px; display:block; margin-top:15px; color: #a1887f;">Este é um site institucional e comercial, estruturado em conformidade com as diretrizes de transparência do Google Ads e adequação jurídica de representação de pessoa jurídica.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            Nós utilizamos cookies para personalizar sua experiência, analisar o tráfego do nosso site e processar eventuais pedidos online. Ao continuar navegando, você concorda com a nossa Política de Privacidade.
+        </div>
+        <button class="btn" onclick="acceptCookies()" style="padding: 10px 20px; font-size: 13px;">Entendi e Aceito</button>
+    </div>
+
+    <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('policyModal')">&times;</span>
+            <h2>Política de Privacidade</h2>
+            <p>Esta Política de Privacidade estabelece como a <strong>Divino Pao Padaria LTDA</strong> (CNPJ: 66.966.253/0001-22) coleta, usa, mantém e divulga as informações coletadas dos usuários deste site institucional e comercial.</p>
+            <h3>1. Coleta de Dados Pessoais</h3>
+            <p>Coletamos informações de identificação pessoal de forma voluntária, especificamente quando os usuários preenchem nosso formulário para cotação de serviços de bufê, compras no atacado ou encomendas no varejo.</p>
+            <h3>2. Proteção de Dados</h3>
+            <p>Adotamos práticas adequadas de coleta, armazenamento e processamento de dados e medidas de segurança para proteger contra acesso não autorizado ou alteração das informações registradas no formulário.</p>
+            <h3>3. Conformidade com a LGPD</h3>
+            <p>A Divino Pão Padaria LTDA não comercializa, troca ou aluga informações de identificação pessoal de usuários. O uso dos dados se restringe ao relacionamento comercial direto (orçamentos e retornos operacionais).</p>
+        </div>
+    </div>
+
+    <!-- MODAL TERMOS DE USO -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Termos e Condições de Uso</h2>
+            <p>O acesso e uso do site da <strong>Divino Pao Padaria LTDA</strong> estão sujeitos aos seguintes Termos de Uso:</p>
+            <h3>1. Informações de Serviços</h3>
+            <p>As informações descritas sobre produtos de panificação, açougue, laticínios, comércio atacadista e bufê refletem as operações ativas registradas em nossos CNAEs primários e secundários. Imagens de produtos no site possuem caráter ilustrativo de nossa linha de produção.</p>
+            <h3>2. Contratos de Bufê e Atacado</h3>
+            <p>Solicitações feitas pelo site não constituem um contrato firmado. Todo fornecimento no atacado ou prestação de serviços de bufê em eventos estará sujeito à elaboração de contrato comercial específico assinado entre as partes.</p>
+            <h3>3. Veracidade das Informações</h3>
+            <p>Mantemos nosso rodapé e seções de contato com dados estritos, reais e verificáveis, alinhados aos dados públicos emitidos pela Receita Federal do Brasil, reforçando a transparência e credibilidade exigidas pelas plataformas de publicidade digital.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('divinoPaoCookies')) {
+                document.getElementById('cookieBanner').style.display = 'flex';
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('divinoPaoCookies', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Impede rolagem do fundo
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura rolagem
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
